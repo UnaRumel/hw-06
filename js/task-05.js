@@ -1,8 +1,10 @@
-const inputEl = document.querySelector("#name-input");
-const nameEl = document.querySelector("#name-output");
-const onInputTyping = (event) => {
-  nameEl.textContent = event.currentTarget.value.trim();
-  const valid = event.target.value.trim();
-  nameEl.textContent = valid ? valid : "Anonymous";
+const nameInputEl = document.querySelector("#name-input");
+const nameOutputEl = document.querySelector("#name-output");
+
+const chekInputValue = (e) => {
+  if (e.currentTarget.value.trim() === "") {
+    nameOutputEl.textContent = "Anonymous";
+  } else nameOutputEl.textContent = e.currentTarget.value;
 };
-inputEl.addEventListener("input", onInputTyping);
+
+nameInputEl.addEventListener("input", chekInputValue);
